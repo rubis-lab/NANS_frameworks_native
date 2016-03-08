@@ -305,7 +305,12 @@ public:
      */
     virtual void setInputWindows(const Vector<sp<InputWindowHandle> >& inputWindowHandles) = 0;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	virtual void setInputDisplay(int32_t layerStack) = 0;
 	// END
 
@@ -392,7 +397,12 @@ public:
     virtual void setInputDispatchMode(bool enabled, bool frozen);
     virtual void setInputFilterEnabled(bool enabled);
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	virtual void setInputDisplay(int32_t layerStack);
 	// END
 
@@ -885,7 +895,12 @@ private:
     // to transfer focus to a new application.
     EventEntry* mNextUnblockedEvent;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	bool checkInputDisplay(int displayId);
 	bool checkInputPackage(String8& packageName);
 	KeyedVector<int, int> mInputDisplay;

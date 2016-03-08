@@ -495,7 +495,12 @@ private:
     mat4 mColorMatrix;
     bool mHasColorMatrix;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	int mAssignedLayerStack;
 	// END
 };

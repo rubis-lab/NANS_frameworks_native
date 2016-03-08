@@ -173,7 +173,12 @@ SurfaceFlinger::SurfaceFlinger()
     ALOGI_IF(mDebugRegion, "showupdates enabled");
     ALOGI_IF(mDebugDDMS, "DDMS debugging enabled");
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	mAssignedLayerStack = 0;
 	// END
 }
@@ -1391,7 +1396,12 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                                 display, dispSurface, producer,
                                 mRenderEngine->getEGLConfig());
 
-						// RUBIS ockwon
+						/**
+						 * Date: Feb 25, 2016
+						 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+						 * 
+						 * Comments
+						 */
                         //hw->setLayerStack(state.layerStack);
                         hw->setLayerStack(++mAssignedLayerStack);
 						// END

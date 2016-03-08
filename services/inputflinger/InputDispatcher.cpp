@@ -209,8 +209,14 @@ InputDispatcher::InputDispatcher(const sp<InputDispatcherPolicyInterface>& polic
 
     policy->getDispatcherConfiguration(&mConfig);
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
 	mWifiDisplay = 0;
+	//END
 }
 
 InputDispatcher::~InputDispatcher() {
@@ -475,6 +481,15 @@ void InputDispatcher::addRecentEventLocked(EventEntry* entry) {
 sp<InputWindowHandle> InputDispatcher::findTouchedWindowAtLocked(int32_t displayId,
         int32_t x, int32_t y) {
     // Traverse windows from front to back to find touched window.
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
+	ALOGD("findTouchedWindowAtLocked(), displayId=%d, x=%d, y=%d", displayId, x, y);
+	// END
+
     size_t numWindows = mWindowHandles.size();
     for (size_t i = 0; i < numWindows; i++) {
         sp<InputWindowHandle> windowHandle = mWindowHandles.itemAt(i);
@@ -1059,14 +1074,30 @@ void InputDispatcher::resetANRTimeoutsLocked() {
     mInputTargetWaitApplicationHandle.clear();
 }
 
-// RUBIS ockwon
+/**
+ * Date: Feb 25, 2016
+ * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+ *
+ * Comments
+ *
+ * @param layerStack
+ * @return void
+ */
 void InputDispatcher::setInputDisplay(int layerStack) {
     ALOGD("setInputDisplay(), mWifiDisplay = %d", layerStack);
     mWifiDisplay = layerStack;
 }
 // END
 
-// RUBIS ockwon
+/**
+ * Date: Feb 25, 2016
+ * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+ *
+ * Comments
+ *
+ * @param displayId
+ * @return bool
+ */
 bool InputDispatcher::checkInputDisplay(int displayId) {
     size_t numWindows = mWindowHandles.size();
     for(size_t i=0; i<numWindows; i++) {
@@ -1156,8 +1187,16 @@ int32_t InputDispatcher::findTouchedWindowTargetsLocked(nsecs_t currentTime,
     int32_t action = entry->action;
     int32_t maskedAction = action & AMOTION_EVENT_ACTION_MASK;
 
-	// RUBIS ockwon
-	// ALOGD("  mWifiDisplay=%d, entry->displayId=%d", mWifiDisplay, entry->displayId);
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Comments
+	 */
+    int32_t ix = int32_t(entry->pointerCoords[0].getAxisValue(AMOTION_EVENT_AXIS_X));
+    int32_t iy = int32_t(entry->pointerCoords[0].getAxisValue(AMOTION_EVENT_AXIS_Y));
+	ALOGD("findTouchedWindowTargetsLocked(), mWifiDisplay=%d, "
+			"entry->displayId==%d, x=%d, y=%d", mWifiDisplay, entry->displayId, ix, iy);
 	if (entry->deviceId <= 6) {
 		displayId = 0;
 	} else {
