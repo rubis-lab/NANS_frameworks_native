@@ -495,7 +495,12 @@ private:
     mat4 mColorMatrix;
     bool mHasColorMatrix;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Add a variable to assign the layerStack of new display device.
+	 */
 	int mAssignedLayerStack;
 	// END
 };

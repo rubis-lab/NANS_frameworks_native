@@ -209,8 +209,14 @@ InputDispatcher::InputDispatcher(const sp<InputDispatcherPolicyInterface>& polic
 
     policy->getDispatcherConfiguration(&mConfig);
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Add a variable for the input device of WiFi display.
+	 */
 	mWifiDisplay = 0;
+	//END
 }
 
 InputDispatcher::~InputDispatcher() {
@@ -1059,21 +1065,31 @@ void InputDispatcher::resetANRTimeoutsLocked() {
     mInputTargetWaitApplicationHandle.clear();
 }
 
-// RUBIS ockwon
+/**
+ * Date: Feb 25, 2016
+ * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+ *
+ * Sets the layerStack which events from WiFi display have to be dispatched.
+ */
 void InputDispatcher::setInputDisplay(int layerStack) {
     ALOGD("setInputDisplay(), mWifiDisplay = %d", layerStack);
     mWifiDisplay = layerStack;
 }
 // END
 
-// RUBIS ockwon
+/**
+ * Date: Feb 25, 2016
+ * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+ *
+ * Check whether display device which has the same displayId is existing.
+ */
 bool InputDispatcher::checkInputDisplay(int displayId) {
     size_t numWindows = mWindowHandles.size();
     for(size_t i=0; i<numWindows; i++) {
         sp<InputWindowHandle> windowHandle = mWindowHandles.itemAt(i);
         const InputWindowInfo* windowInfo = windowHandle->getInfo();
-        ALOGD("++name=%s, windowInfo->displayId=%d, displayId=%d",
-            windowInfo->name.string(), windowInfo->displayId, displayId);
+        // ALOGD("++name=%s, windowInfo->displayId=%d, displayId=%d",
+        //    windowInfo->name.string(), windowInfo->displayId, displayId);
         if (windowInfo->displayId == displayId) {
             return true;
         }
@@ -1156,8 +1172,17 @@ int32_t InputDispatcher::findTouchedWindowTargetsLocked(nsecs_t currentTime,
     int32_t action = entry->action;
     int32_t maskedAction = action & AMOTION_EVENT_ACTION_MASK;
 
-	// RUBIS ockwon
-	// ALOGD("  mWifiDisplay=%d, entry->displayId=%d", mWifiDisplay, entry->displayId);
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Classify the event which display to go.
+	 * TODO: We have to find more general way to classify the display of event.
+	 */
+    // int32_t ix = int32_t(entry->pointerCoords[0].getAxisValue(AMOTION_EVENT_AXIS_X));
+    // int32_t iy = int32_t(entry->pointerCoords[0].getAxisValue(AMOTION_EVENT_AXIS_Y));
+	// ALOGD("findTouchedWindowTargetsLocked(), mWifiDisplay=%d, "
+	//		"entry->displayId==%d, x=%d, y=%d", mWifiDisplay, entry->displayId, ix, iy);
 	if (entry->deviceId <= 6) {
 		displayId = 0;
 	} else {

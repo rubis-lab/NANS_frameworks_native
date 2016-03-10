@@ -305,7 +305,12 @@ public:
      */
     virtual void setInputWindows(const Vector<sp<InputWindowHandle> >& inputWindowHandles) = 0;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Add a function declaration.
+	 */
 	virtual void setInputDisplay(int32_t layerStack) = 0;
 	// END
 
@@ -392,7 +397,12 @@ public:
     virtual void setInputDispatchMode(bool enabled, bool frozen);
     virtual void setInputFilterEnabled(bool enabled);
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Add a virtual function.
+	 */
 	virtual void setInputDisplay(int32_t layerStack);
 	// END
 
@@ -885,12 +895,15 @@ private:
     // to transfer focus to a new application.
     EventEntry* mNextUnblockedEvent;
 
-	// RUBIS ockwon
+	/**
+	 * Date: Feb 25, 2016
+	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+	 * 
+	 * Add declarations of functions and variables.
+	 */
 	bool checkInputDisplay(int displayId);
 	bool checkInputPackage(String8& packageName);
-	KeyedVector<int, int> mInputDisplay;
 	int mWifiDisplay;
-	String8 mWifiPackage;
 	// END
 
     sp<InputWindowHandle> findTouchedWindowAtLocked(int32_t displayId, int32_t x, int32_t y);

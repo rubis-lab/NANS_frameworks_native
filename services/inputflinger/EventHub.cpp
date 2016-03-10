@@ -937,6 +937,16 @@ size_t EventHub::getEvents(int timeoutMillis, RawEvent* buffer, size_t bufferSiz
             }
         }
 
+		/**
+		 * Date: Feb 25, 2016
+		 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
+		 * 
+		 * Comments
+		 */
+		// ALOGD("getEvent(), deviceId=%d, type=%d, code=%d, value=%d", 
+		// 		event->deviceId, event->type, event->code, event->value);
+		// END
+
         // readNotify() will modify the list of devices so this must be done after
         // processing all other events to ensure that we read all remaining events
         // before closing the devices.
