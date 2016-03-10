@@ -309,7 +309,7 @@ public:
 	 * Date: Feb 25, 2016
 	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
 	 * 
-	 * Comments
+	 * Add a function declaration.
 	 */
 	virtual void setInputDisplay(int32_t layerStack) = 0;
 	// END
@@ -401,7 +401,7 @@ public:
 	 * Date: Feb 25, 2016
 	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
 	 * 
-	 * Comments
+	 * Add a virtual function.
 	 */
 	virtual void setInputDisplay(int32_t layerStack);
 	// END
@@ -899,13 +899,11 @@ private:
 	 * Date: Feb 25, 2016
 	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
 	 * 
-	 * Comments
+	 * Add declarations of functions and variables.
 	 */
 	bool checkInputDisplay(int displayId);
 	bool checkInputPackage(String8& packageName);
-	KeyedVector<int, int> mInputDisplay;
 	int mWifiDisplay;
-	String8 mWifiPackage;
 	// END
 
     sp<InputWindowHandle> findTouchedWindowAtLocked(int32_t displayId, int32_t x, int32_t y);

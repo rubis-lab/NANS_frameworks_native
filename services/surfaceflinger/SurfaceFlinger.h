@@ -499,7 +499,7 @@ private:
 	 * Date: Feb 25, 2016
 	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
 	 * 
-	 * Comments
+	 * Add a variable to assign the layerStack of new display device.
 	 */
 	int mAssignedLayerStack;
 	// END

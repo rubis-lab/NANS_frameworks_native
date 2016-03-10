@@ -176,8 +176,8 @@ SurfaceFlinger::SurfaceFlinger()
 	/**
 	 * Date: Feb 25, 2016
 	 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
-	 * 
-	 * Comments
+	 *
+	 * Sets the initial value of mAssignedLayerStack. 
 	 */
 	mAssignedLayerStack = 0;
 	// END
@@ -1400,7 +1400,7 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
 						 * Date: Feb 25, 2016
 						 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
 						 * 
-						 * Comments
+						 * Set the initial layerStack of new display device.
 						 */
                         //hw->setLayerStack(state.layerStack);
                         hw->setLayerStack(++mAssignedLayerStack);

@@ -943,7 +943,8 @@ size_t EventHub::getEvents(int timeoutMillis, RawEvent* buffer, size_t bufferSiz
 		 * 
 		 * Comments
 		 */
-		ALOGD("getEvent(), deviceId=%d, type=%d, code=%d, value=%d", event->deviceId, event->type, event->code, event->value);
+		// ALOGD("getEvent(), deviceId=%d, type=%d, code=%d, value=%d", 
+		// 		event->deviceId, event->type, event->code, event->value);
 		// END
 
         // readNotify() will modify the list of devices so this must be done after
