@@ -902,8 +902,7 @@ private:
 	 * Add declarations of functions and variables.
 	 */
 	bool checkInputDisplay(int displayId);
-	bool checkInputPackage(String8& packageName);
-	int mWifiDisplay;
+	int mWifiDisplay = 0;
 	// END
 
     sp<InputWindowHandle> findTouchedWindowAtLocked(int32_t displayId, int32_t x, int32_t y);

@@ -1066,22 +1066,22 @@ void InputDispatcher::resetANRTimeoutsLocked() {
 }
 
 /**
- * Date: Feb 25, 2016
+ * Date: Apr 7, 2016
  * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
  *
  * Sets the layerStack which events from WiFi display have to be dispatched.
  */
 void InputDispatcher::setInputDisplay(int layerStack) {
-    ALOGD("setInputDisplay(), mWifiDisplay = %d", layerStack);
+    //ALOGD("setInputDisplay(), mWifiDisplay = %d", layerStack);
     mWifiDisplay = layerStack;
 }
 // END
 
 /**
- * Date: Feb 25, 2016
+ * Date: Apr 7, 2016
  * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
  *
- * Check whether display device which has the same displayId is existing.
+ * Check whether inputWindow on the display exists or not.
  */
 bool InputDispatcher::checkInputDisplay(int displayId) {
     size_t numWindows = mWindowHandles.size();
