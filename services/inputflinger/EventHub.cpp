@@ -937,12 +937,7 @@ size_t EventHub::getEvents(int timeoutMillis, RawEvent* buffer, size_t bufferSiz
             }
         }
 
-		/**
-		 * Date: Feb 25, 2016
-		 * Copyright (C) 2016 RUBIS Laboratory at Seoul National University
-		 * 
-		 * Comments
-		 */
+		// RUBIS ockwon
 		// ALOGD("getEvent(), deviceId=%d, type=%d, code=%d, value=%d", 
 		// 		event->deviceId, event->type, event->code, event->value);
 		// END
