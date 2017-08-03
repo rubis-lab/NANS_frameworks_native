@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (C) 2017 RUBIS Laboratory at Seoul National University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -187,6 +188,15 @@ SurfaceFlinger::SurfaceFlinger()
     property_get("debug.sf.disable_hwc_vds", value, "0");
     mUseHwcVirtualDisplays = !atoi(value);
     ALOGI_IF(!mUseHwcVirtualDisplays, "Disabling HWC virtual displays");
+
+    /*
+     * Date: Jul 4, 2017
+     * Copyright (C) 2017 RUBIS Laboratory at Seoul National University
+     *
+     * Sets the initial value of mAssignedLayerStack.
+     */
+    mAssignedLayerStack = 0;
+    // END
 }
 
 void SurfaceFlinger::onFirstRef()
@@ -1642,6 +1652,15 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                                 state.type, hwcId, state.isSecure, display,
                                 dispSurface, producer,
                                 mRenderEngine->getEGLConfig());
+                        /*
+                         * Date: Jul 4, 2017
+                         * Copyright (C) 2017 RUBIS Laboratory at Seoul National University
+                         *
+                         * Set the initial layerStack of new display device.
+                         */
+                        // hw->setLayerStack(state.layerStack);
+                        hw->setLayerStack(++mAssignedLayerStack);
+                        // END
                         hw->setLayerStack(state.layerStack);
                         hw->setProjection(state.orientation,
                                 state.viewport, state.frame);
